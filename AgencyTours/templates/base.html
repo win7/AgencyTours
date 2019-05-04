@@ -1,0 +1,277 @@
+{% load cms_tags menu_tags sekizai_tags static %}
+{% load custom_tags %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>{% block title %}This is my new project home page{% endblock title %}</title>
+        {% block css %}
+        <!-- Plugins CSS -->
+        <link rel="stylesheet" href="{% static 'assets/plugins/css/plugins.css' %}">   
+        
+        <!-- Custom style -->
+        <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+        <link href="{% static 'assets/css/responsiveness.css' %}" rel="stylesheet">
+        <link id="jssDefault" rel="stylesheet" href="{% static 'assets/css/skins/default.css' %}">
+        <link rel="shortcut icon" href="{% static 'assets/img/favicon.png' %}">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+        {% endblock %}
+        {% render_block "css" %}
+    </head>
+    
+    <body>
+        {% cms_toolbar %}
+        <!-- ======================= Start Navigation ===================== -->
+        <nav class="navbar navbar-default navbar-mobile navbar-fixed white no-background bootsnav">
+            <div class="container">
+            
+                <!-- Start Logo Header Navigation -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+                        <i class="fa fa-bars"></i>
+                    </button>
+                    <a class="navbar-brand" href="/">
+                        {% static_placeholder "logo" or %}
+                            <img src="{% static 'assets/img/logo.png' %}" class="logo logo-display" alt="">
+                            <img src="{% static 'assets/img/logo.png' %}" class="logo logo-scrolled" alt="">
+                        {% endstatic_placeholder %}
+                    </a>
+
+                </div>
+                <!-- End Logo Header Navigation -->
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="navbar-menu">
+                    <ul class="nav navbar-nav navbar-left" data-in="fadeInDown" data-out="fadeOutUp">
+                        {% show_menu 0 100 100 100 "navigation.html" %}                        
+                    </ul>
+                    
+                    <!-- <ul class="nav navbar-nav navbar-right">
+                        <li class="br-right"><a href="javascript:void(0)"  data-toggle="modal" data-target="#signin"><i class="login-icon ti-user"></i>Login</a></li>
+                        <li class="sign-up"><a class="btn-signup red-btn" href="tour-grid-sidebar.html"><span class="ti-briefcase"></span>Booking Toor</a></li> 
+                    </ul> -->
+                        
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>   
+        </nav>
+        <!-- ======================= End Navigation ===================== -->
+
+        {% block header %}
+        {% endblock header %}  
+
+        {% block content %}
+        {% endblock content %}
+        
+        {% static_placeholder "footer" %}
+
+        <!-- ============== Before Footer ====================== -->
+        <section class="before-footer bt-1 bb-1">
+            <div class="container-fluid padd-0 full-width">
+            
+                <div class=" col-md-2 col-sm-2 br-1 mbb-1">
+                    <div class="data-flex">
+                        <h4> Contactenos </h4>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 col-sm-3 br-1 mbb-1">
+                    <div class="data-flex text-center">
+                        {% static_placeholder "text_address" or %}
+                            53 Boulevard Victor Hugo 44200 Nantes, France
+                        {% endstatic_placeholder %}
+                    </div>
+                </div>
+                
+                <div class="col-md-3 col-sm-3 br-1 mbb-1">
+                    <div class="data-flex text-center">
+                        <span class="d-block mrg-bot-0">
+                            {% static_placeholder "text_phone" or %}
+                                06 52 52 20 30
+                            {% endstatic_placeholder %}
+                        </span>
+                        {% static_placeholder "link_email" or %}
+                            <a href="#" class="theme-cl"><strong> hello@gmail.com </strong></a>
+                        {% endstatic_placeholder %}
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-4 padd-0">
+                    <div class="data-flex text-center">
+                        <span class="d-block mrg-bot-0">
+                            Número de Emergencia
+                        </span>
+                        
+                        <span class="theme-cl">
+                            {% static_placeholder "Text_e_phone" or %}
+                                084-123321
+                            {% endstatic_placeholder %}
+                        </span>
+                    </div>
+                </div>
+                
+                {% comment %} 
+                    <div class="col-md-4 col-sm-4 padd-0">
+                        <div class="data-flex padd-0">
+                            <ul class="social-share">
+                                <li>
+                                    {% static_placeholder 'facebook' or %}
+                                        <a href="#"><i class="fa fa-facebook theme-cl"></i></a>
+                                    {% endstatic_placeholder %}
+                                </li>
+                                <li>
+                                    {% static_placeholder 'google_plus' or %}
+                                        <a href="#"><i class="fa fa-google-plus theme-cl"></i></a>
+                                    {% endstatic_placeholder %}                                
+                                </li>
+                                <li>
+                                    {% static_placeholder 'twitter' or %}
+                                        <a href="#"><i class="fa fa-twitter theme-cl"></i></a>
+                                    {% endstatic_placeholder %}
+                                </li>
+                                <li>
+                                    {% static_placeholder 'linkedin' or %}
+                                        <a href="#"><i class="fa fa-linkedin theme-cl"></i></a>
+                                    {% endstatic_placeholder %}
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                {% endcomment %} 
+            </div>
+        </section>
+        <!-- =================== Before Footer ====================== -->
+        
+        <!-- ================= footer start ========================= -->
+        <footer class="footer dark-bg">
+            <div class="container">
+                
+                <!-- Row Start -->
+                <div class="row">
+                
+                    <div class="col-md-8 col-sm-8">
+                        <div class="row">
+                            <div class="col-md-4 col-sm-4">
+                                <h4> Mapa Web </h4>
+                                <ul>
+                                    {% for child in children %}
+                                        <li> <a href="{{ child.attr.redirect_url|default:child.get_absolute_url }}"> {{ child.get_menu_title }} </a> </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            <div class="col-md-4 col-sm-4">
+                                <h4> Los mejores Tours </h4>
+                                <ul>
+                                    {% comment %} 
+                                        {% static_placeholder "best_tours" or %}
+                                            <li><a href="#">Tour Grid</a></li>
+                                            <li><a href="#">Tour List</a></li>
+                                        {% endstatic_placeholder %}
+                                    {% endcomment %}
+
+                                    {% service_all as service %}
+                                    {% for item in service %}
+                                        <li><a href="{% url 'detail' item.id %}"> {{ item.title }} </a></li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            <div class="col-md-4 col-sm-4">
+                                <h4> Links Externos </h4>
+                                <ul>
+                                    {% static_placeholder "external_links" or %}
+                                        <li><a href="#">Hotel Grid</a></li>
+                                    {% endstatic_placeholder %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4 col-sm-4">
+                        <!-- Newsletter -->
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Ingresar Email">
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-default"><i class="fa fa-location-arrow font-20"></i></button>
+                            </span>
+                        </div>
+                        
+                        <!-- Social Box -->
+                        <div class="f-social-box">
+                            <ul>
+                                <li>
+                                    {% static_placeholder "link_facebook" or %}
+                                        <a href="#"><i class="fab fa-facebook facebook-cl"></i></a>
+                                    {% endstatic_placeholder %}
+                                </li>
+                                <li>
+                                    {% static_placeholder "link_google_plus" or %}
+                                        <a href="#"><i class="fab fa-google google-plus-cl"></i></a>
+                                    {% endstatic_placeholder %}
+                                </li>
+                                <li>
+                                    {% static_placeholder "link_twitter" or %}
+                                        <a href="#"><i class="fab fa-twitter twitter-cl"></i></a>
+                                    {% endstatic_placeholder %}
+                                </li>
+                                <li>
+                                    {% static_placeholder "link_pinterest" or %}
+                                        <a href="#"><i class="fab fa-pinterest pinterest-cl"></i></a>
+                                    {% endstatic_placeholder %}
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <!-- App Links -->
+                        <!-- <div class="f-app-box">
+                            <ul>
+                                <li><a href="#"><i class="fa fa-apple"></i>App Store</a></li>
+                                <li><a href="#"><i class="fa fa-android"></i>Play Store</a></li>
+                            </ul>
+                        </div> -->
+                        
+                    </div>
+                    
+                </div>
+                
+                <!-- Row Start -->
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="copyright text-center">
+                            <p>&copy; Copyright 2018 Travel Stock | Powerd By <a href="http://themezhub.com/" title="Themez Hub">Themez Hub</a></p>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </footer>
+
+        {% block js %}         
+        <!-- =================== START JAVASCRIPT ================== -->
+        <script src="{% static 'assets/plugins/js/jquery.min.js' %}"></script>
+        <script src="{% static 'assets/plugins/js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'assets/plugins/js/viewportchecker.js' %}"></script>
+        <script src="{% static 'assets/plugins/js/bootsnav.js' %}"></script>
+        <script src="{% static 'assets/plugins/js/slick.min.js' %}"></script>
+        <script src="{% static 'assets/plugins/js/jquery.nice-select.min.js' %}"></script>
+        <script src="{% static 'assets/plugins/js/jquery.fancybox.min.js' %}"></script>
+        <script src="{% static 'assets/plugins/js/jquery.downCount.js' %}"></script>
+        <script src="{% static 'assets/plugins/js/freshslider.1.0.0.js' %}"></script>
+        <script src="{% static 'assets/plugins/js/moment.min.js' %}"></script>
+        <script src="{% static 'assets/plugins/js/daterangepicker.js' %}"></script>
+        <script src="{% static 'assets/plugins/js/wysihtml5-0.3.0.js' %}"></script>
+        <script src="{% static 'assets/plugins/js/bootstrap-wysihtml5.js' %}"></script>
+        
+        <!-- Dashboard Js -->
+        <script src="{% static 'assets/plugins/js/jquery.slimscroll.min.js' %}"></script>
+        <script src="{% static 'assets/plugins/js/jquery.metisMenu.js' %}"></script>
+        <script src="{% static 'assets/plugins/js/jquery.easing.min.js' %}"></script>
+ 
+        <!-- Custom Js -->
+        <script src="{% static 'assets/js/custom.js' %}"></script>
+        {% endblock %}
+        {% render_block "js" %}
+    </body>
+</html>

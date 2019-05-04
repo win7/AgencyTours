@@ -1,0 +1,61 @@
+<!-- Single Tour -->
+<div class="col-md-4 col-sm-6">
+    <article class="tour-box style-1">
+        
+        <div class="tour-box-image">
+            <figure>
+                <a href="{% url 'detail' instance.id %}">
+                    <img src="{{ instance.image1.url }}" class="img-responsive listing-box-img" alt="" />
+                    <div class="list-overlay"></div>
+                </a>
+                <div class="entry-bookmark">                                   
+                    <a href="#"><i class="ti-bookmark"></i></a>
+                </div>
+                <div class="tour-time">
+                    <i class="ti ti-time"></i><span> {{ instance.day }} día{{ instance.day|pluralize }} </span>
+                </div>
+                <h4 class="destination-place">
+                    <a href="#"> {{ instance.title }} </a>
+                </h4>
+                <span class="featured-tour"><i class="fa fa-star"></i></span>
+                <a href="#" class="list-like left"><i class="ti-heart"></i></a>
+            </figure>
+        </div>
+        
+        <!-- <div class="entry-meta">
+            <div class="meta-item meta-author">
+                <div class="coauthors">
+                    <span class="vcard author">
+                        <span class="fn">
+                            <a href="#"><img alt="" src="assets/img/user-2.jpg" class="avatar avatar-24" height="24" width="24">Lisa Scholfield</a>
+                        </span>
+                    </span>
+                </div>
+            </div>
+            <div class="meta-item meta-comment fl-right">
+                <i class="ti-comment-alt"></i><span>26</span>
+            </div>
+            <div class="meta-item meta-rating fl-right">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star-half"></i>
+            </div>
+        </div> -->
+
+        <div class="inner-box">
+            <div class="box-inner-ellipsis">
+                <h4 class="entry-title">
+                    <a href="{% url 'detail' instance.id %}"> {{ instance.location }} </a>
+                </h4>
+                <div class="price-box">
+                    <div class="tour-price fl-right">
+                        <i class="ti ti-user"></i><span class="theme-cl f-bold"> ${{ instance.price }} </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </article>
+</div>

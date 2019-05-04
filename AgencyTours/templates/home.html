@@ -1,0 +1,793 @@
+{% extends "base.html" %}
+{% load cms_tags static %}
+{% load custom_tags %}
+
+{% block title %}{% page_attribute "page_title" %}{% endblock title %}
+
+{% block header %}
+    <!-- ======================= Slide Multiple Booking Start Banner ===================== -->
+    <section class="main-banner scroll-con-sec hero-section" data-scrollax-parent="true">
+        <div class="slideshow-container">
+            {% placeholder "slide" or %}
+                <!-- slideshow-item --> 
+                <div class="slideshow-item">
+                    <div class="bg"  data-bg="{% static 'assets/img/banner-6.jpg' %}"></div>
+                </div>
+                <!--  slideshow-item end  -->
+            {% endplaceholder %}
+        </div>
+        <div class="overlay"></div>
+        <div class="hero-section-wrap fl-wrap multi-option-booking">
+            <div class="container">
+               <div class="col-md-12">
+                    <div class="caption text-center cl-white">
+                        <h2> {% placeholder "slide_title" %} </h2>
+                        <p> {% placeholder "slide_subtitle" %} </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ======================= Slide Multiple Booking End Banner ===================== -->
+    <div class="clearfix"></div>
+{% endblock header %}
+
+{% block content %}
+    {% service_all as service %}
+    <!-- ====================== Popular Tour ================= -->
+    <section class="gray-dot gray-bg">
+        <div class="container">
+            
+            {% placeholder "title_best_tours" %}
+            
+            <div class="row">
+                
+                <div class="list-slider">
+                    {% for item in service %}
+                        <!-- Single Tour -->
+                        <div class="list-slide-box">
+                            <article class="tour-box style-1">
+                            
+                                <!-- Single Tour -->
+                                <div class="tour-box-image">
+                                    <figure>
+                                        <a href="{% url 'detail' item.id %}">
+                                            <img src="{{ item.image1.url }}" class="img-responsive listing-box-img" alt="" />
+                                            <div class="list-overlay"></div>
+                                        </a>
+                                        <div class="entry-bookmark">                                   
+                                            <a href="#"><i class="ti-bookmark"></i></a>
+                                        </div>
+                                        <div class="tour-time">
+                                            <i class="ti ti-car"></i><span> {{ item.day }} </span>
+                                        </div>
+                                        <h4 class="tour-place">
+                                            <a href="{% url 'detail' item.id %}"> {{ item.sub_title }} </a>
+                                        </h4>
+                                        <span class="featured-tour"><i class="fa fa-star"></i></span>
+                                        <a href="#" class="list-like left"><i class="ti-heart"></i></a>
+                                    </figure>
+                                </div>
+                                
+                                <!-- <div class="entry-meta">
+                                    <div class="meta-item meta-author">
+                                        <div class="coauthors">
+                                            <span class="vcard author">
+                                                <span class="fn">
+                                                    <a href="#"><img alt="" src="assets/img/user-1.jpg" class="avatar avatar-24" height="24" width="24">Lisa Scholfield</a>
+                                                </span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="meta-item meta-comment fl-right">
+                                        <i class="ti-comment-alt"></i><span>25</span>
+                                    </div>
+                                    <div class="meta-item meta-rating fl-right">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star-half"></i>
+                                    </div>
+                                </div> -->
+
+                                <div class="inner-box">
+                                    <div class="box-inner-ellipsis">
+                                        <h4 class="entry-title">
+                                            <a href="{% url 'detail' item.id %}"> {{ item.title }} </a>
+                                        </h4>
+                                        <div class="price-box">
+                                            <div class="tour-price fl-right">
+                                                <i class="ti ti-user"></i><span class="theme-cl f-bold"> ${{ item.price }} </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+            
+                            </article>
+                        </div>
+                    {% endfor %}                    
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!-- ====================== Popular Tour ================= -->  
+    <div class="clearfix"></div>
+    
+    <!-- ====================== Tour Guide ================= -->
+    <section class="gray-bg">
+        <div class="container">
+            
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="heading">
+                        <span class="theme-cl">Select Guide</span>
+                        <h1>Popular Guide</h1>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                
+                <!-- Single Guide -->
+                <div class="col-md-3 col-sm-6">
+                    <div class="guides-container">
+                    
+                        <div class="guides-box">
+                            <div class="guides-img-box">
+                                <img src="{% static 'assets/img/user-1.jpg' %}" class="img-responsive" alt="" />
+                            </div>
+                            <div class="guider-detail">
+                                <h4>Suryansh Vighul</h4>
+                                <h5 class="theme-cl font-bold">$42/Hour</h5>
+                            </div>
+                        </div>
+                        <a href="guide-detail.html" class="btn theme-btn full-width">Book Now</a>
+                    
+                    </div>
+                </div>
+                
+                <!-- Single Guide -->
+                <div class="col-md-3 col-sm-6">
+                    <div class="guides-container">
+                    
+                        <div class="guides-box">
+                            <div class="guides-img-box">
+                                <img src="{% static 'assets/img/user-2.jpg' %}" class="img-responsive" alt="" />
+                            </div>
+                            <div class="guider-detail">
+                                <h4>Richita Setthy</h4>
+                                <h5 class="theme-cl font-bold">$32/Hour</h5>
+                            </div>
+                        </div>
+                        <a href="guide-detail.html" class="btn theme-btn full-width">Book Now</a>
+                    
+                    </div>
+                </div>
+                
+                <!-- Single Guide -->
+                <div class="col-md-3 col-sm-6">
+                    <div class="guides-container">
+                    
+                        <div class="guides-box">
+                            <div class="guides-img-box">
+                                <img src="{% static 'assets/img/user-3.jpg' %}" class="img-responsive" alt="" />
+                            </div>
+                            <div class="guider-detail">
+                                <h4>Adam Survinia</h4>
+                                <h5 class="theme-cl font-bold">$47/Hour</h5>
+                            </div>
+                        </div>
+                        <a href="guide-detail.html" class="btn theme-btn full-width">Book Now</a>
+                    
+                    </div>
+                </div>
+                
+                <!-- Single Guide -->
+                <div class="col-md-3 col-sm-6">
+                    <div class="guides-container">
+                    
+                        <div class="guides-box">
+                            <div class="guides-img-box">
+                                <img src="{% static 'assets/img/user-4.jpg' %}" class="img-responsive" alt="" />
+                            </div>
+                            <div class="guider-detail">
+                                <h4>Shilpa Suchi</h4>
+                                <h5 class="theme-cl font-bold">$50/Hour</h5>
+                            </div>
+                        </div>
+                        <a href="guide-detail.html" class="btn theme-btn full-width">Book Now</a>
+                    
+                    </div>
+                </div>
+                
+            </div>
+    
+        </div>
+    </section>
+    <!-- ====================== Tour Guide ================= -->
+    <div class="clearfix"></div>
+    
+    <!-- ====================== How It Work ================= -->
+    <section class="how-it-works">
+        <div class="container">
+            
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="heading">
+                        {% placeholder "title_work %}
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+            
+                <div class="col-md-4 col-sm-4">
+                    <div class="work-process">
+                        <div class="process-img">
+                            <img src="{% static 'assets/img/tour-1.png' %}" class="img-responsive" alt="" />
+                            <span class="process-num">01</span>
+                        </div>
+                        {% placeholder "text_work1" or %}
+                            <h4>Choose a Destination & Guide</h4>
+                            <p>Post a job to tell us about your project. We'll quickly match you with the right freelancers.</p>
+                        {% endplaceholder %}
+                    </div>
+                </div>
+                
+                <div class="col-md-4 col-sm-4">
+                    <div class="work-process">
+                        <div class="process-img">
+                            <img src="{% static 'assets/img/tour-2.png' %}" class="img-responsive" alt="" />
+                            <span class="process-num">02</span>
+                        </div>
+                        {% placeholder "text_work2" or %}
+                            <h4>Choose a Destination & Guide</h4>
+                            <p>Post a job to tell us about your project. We'll quickly match you with the right freelancers.</p>
+                        {% endplaceholder %}
+                    </div>
+                </div>
+                
+                <div class="col-md-4 col-sm-4">
+                    <div class="work-process">
+                        <div class="process-img">
+                            <img src="{% static 'assets/img/tour-3.png' %}" class="img-responsive" alt="" />
+                            <span class="process-num">03</span>
+                        </div>
+                        {% placeholder "text_work3" or %}
+                            <h4>Choose a Destination & Guide</h4>
+                            <p>Post a job to tell us about your project. We'll quickly match you with the right freelancers.</p>
+                        {% endplaceholder %}
+                    </div>
+                </div>
+                
+            </div>
+    
+        </div>
+    </section>
+    <!-- ====================== How It Work ================= -->
+    <div class="clearfix"></div>
+    
+    <!-- ====================== Top Tour & Activities ================= -->
+    <section class="gray-bg">
+        <div class="container">
+            
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="heading">
+                        <span class="theme-cl">Select Tour</span>
+                        <h1>Top Tour & Activities</h1>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="list-slider">
+                
+                    <!-- Single Tour -->
+                    <div class="list-slide-box">
+                        <article class="tour-box style-1">
+                        
+                            <div class="tour-box-image">
+                                <figure>
+                                    <a href="tour-detail.html">
+                                        <img src="{% static 'assets/img/tour/tour-4.jpg' %}" class="img-responsive listing-box-img" alt="" />
+                                        <div class="list-overlay"></div>
+                                        <div class="entry-bookmark">                                   
+                                            <a href="#"><i class="ti-bookmark"></i></a>
+                                        </div>
+                                        <div class="tour-time">
+                                            <i class="ti ti-car"></i><span>22h</span>
+                                        </div>
+                                        <h4 class="destination-place">
+                                            <a href="#">New York, Sean Pavone</a>
+                                        </h4>
+                                        <span class="featured-tour"><i class="fa fa-star"></i></span>
+                                        <a href="#" class="list-like left"><i class="ti-heart"></i></a>
+                                    </a>
+                                </figure>
+                            </div>
+                            
+                            <div class="entry-meta">
+                                <div class="meta-item meta-author">
+                                    <div class="coauthors">
+                                        <span class="vcard author">
+                                            <span class="fn">
+                                                <a href="#"><img alt="" src="{% static 'assets/img/user-4.jpg' %}" class="avatar avatar-24" height="24" width="24">Lisa Scholfield</a>
+                                            </span>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="meta-item meta-comment fl-right">
+                                    <i class="ti-comment-alt"></i><span>18</span>
+                                </div>
+                                <div class="meta-item meta-rating fl-right">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star-half"></i>
+                                </div>
+                            </div>
+
+                            <div class="inner-box">
+                                <div class="box-inner-ellipsis">
+                                    <h4 class="entry-title">
+                                        <a href="#">New York</a>
+                                    </h4>
+                                    <div class="price-box">
+                                        <div class="tour-price fl-right">
+                                            <i class="ti ti-user"></i><span class="theme-cl f-bold">$240</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+        
+                        </article>
+                    </div>
+                
+                    <!-- Single Tour -->
+                    <div class="list-slide-box">
+                        <article class="tour-box style-1">
+                        
+                            <div class="tour-box-image">
+                                <figure>
+                                    <a href="tour-detail.html">
+                                        <img src="{% static 'assets/img/tour/tour-5.jpg' %}" class="img-responsive listing-box-img" alt="" />
+                                        <div class="list-overlay"></div>
+                                        <div class="entry-bookmark">                                   
+                                            <a href="#"><i class="ti-bookmark"></i></a>
+                                        </div>
+                                        <div class="tour-time">
+                                            <i class="ti ti-car"></i><span>17h</span>
+                                        </div>
+                                        <h4 class="destination-place">
+                                            <a href="#">Dubai, United Arab Emirates</a>
+                                        </h4>
+                                        <span class="featured-tour"><i class="fa fa-star"></i></span>
+                                        <a href="#" class="list-like left"><i class="ti-heart"></i></a>
+                                    </a>
+                                </figure>
+                            </div>
+                            
+                            <div class="entry-meta">
+                                <div class="meta-item meta-author">
+                                    <div class="coauthors">
+                                        <span class="vcard author">
+                                            <span class="fn">
+                                                <a href="#"><img alt="" src="{% static 'assets/img/user-5.jpg' %}" class="avatar avatar-24" height="24" width="24">Lisa Scholfield</a>
+                                            </span>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="meta-item meta-comment fl-right">
+                                    <i class="ti-comment-alt"></i><span>15</span>
+                                </div>
+                                <div class="meta-item meta-rating fl-right">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star-half"></i>
+                                </div>
+                            </div>
+
+                            <div class="inner-box">
+                                <div class="box-inner-ellipsis">
+                                    <h4 class="entry-title">
+                                        <a href="#">Saudi Arabia</a>
+                                    </h4>
+                                    <div class="price-box">
+                                        <div class="tour-price fl-right">
+                                            <i class="ti ti-user"></i><span class="theme-cl f-bold">$117</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+        
+                        </article>
+                    </div>
+                
+                    <!-- Single Tour -->
+                    <div class="list-slide-box">
+                        <article class="tour-box style-1">
+                        
+                            <div class="tour-box-image">
+                                <figure>
+                                    <a href="tour-detail.html">
+                                        <img src="{% static 'assets/img/tour/tour-6.jpg' %}" class="img-responsive listing-box-img" alt="" />
+                                        <div class="list-overlay"></div>
+                                        <div class="entry-bookmark">                                   
+                                            <a href="#"><i class="ti-bookmark"></i></a>
+                                        </div>
+                                        <div class="tour-time">
+                                            <i class="ti ti-car"></i><span>1 day</span>
+                                        </div>
+                                        <h4 class="destination-place">
+                                            <a href="#">Paris, France. neirfy</a>
+                                        </h4>
+                                        <span class="featured-tour"><i class="fa fa-star"></i></span>
+                                        <a href="#" class="list-like left"><i class="ti-heart"></i></a>
+                                    </a>
+                                </figure>
+                            </div>
+                            
+                            <div class="entry-meta">
+                                <div class="meta-item meta-author">
+                                    <div class="coauthors">
+                                        <span class="vcard author">
+                                            <span class="fn">
+                                                <a href="#"><img alt="" src="{% static 'assets/img/user-6.jpg' %}" class="avatar avatar-24" height="24" width="24">Lisa Scholfield</a>
+                                            </span>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="meta-item meta-comment fl-right">
+                                    <i class="ti-comment-alt"></i><span>22</span>
+                                </div>
+                                <div class="meta-item meta-rating fl-right">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star-half"></i>
+                                </div>
+                            </div>
+
+                            <div class="inner-box">
+                                <div class="box-inner-ellipsis">
+                                    <h4 class="entry-title">
+                                        <a href="#">Singapore</a>
+                                    </h4>
+                                    <div class="price-box">
+                                        <div class="tour-price fl-right">
+                                            <i class="ti ti-user"></i><span class="theme-cl f-bold">$310</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+        
+                        </article>
+                    </div>
+                    
+                    <!-- Single Tour -->
+                    <div class="list-slide-box">
+                        <article class="tour-box style-1">
+                        
+                            <div class="tour-box-image">
+                                <figure>
+                                    <a href="tour-detail.html">
+                                        <img src="{% static 'assets/img/tour/tour-2.jpg' %}" class="img-responsive listing-box-img" alt="" />
+                                        <div class="list-overlay"></div>
+                                        <div class="entry-bookmark">                                   
+                                            <a href="#"><i class="ti-bookmark"></i></a>
+                                        </div>
+                                        <div class="tour-time">
+                                            <i class="ti ti-car"></i><span>70h</span>
+                                        </div>
+                                        <h4 class="destination-place">
+                                            <a href="#">London, England. AndreaAstes</a>
+                                        </h4>
+                                        <span class="featured-tour"><i class="fa fa-star"></i></span>
+                                        <a href="#" class="list-like left"><i class="ti-heart"></i></a>
+                                    </a>
+                                </figure>
+                            </div>
+                            
+                            <div class="entry-meta">
+                                <div class="meta-item meta-author">
+                                    <div class="coauthors">
+                                        <span class="vcard author">
+                                            <span class="fn">
+                                                <a href="#"><img alt="" src="{% static 'assets/img/user-7.jpg' %}" class="avatar avatar-24" height="24" width="24">Lisa Scholfield</a>
+                                            </span>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="meta-item meta-comment fl-right">
+                                    <i class="ti-comment-alt"></i><span>15</span>
+                                </div>
+                                <div class="meta-item meta-rating fl-right">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star-half"></i>
+                                </div>
+                            </div>
+
+                            <div class="inner-box">
+                                <div class="box-inner-ellipsis">
+                                    <h4 class="entry-title">
+                                        <a href="#">United Kingdom</a>
+                                    </h4>
+                                    <div class="price-box">
+                                        <div class="tour-price fl-right">
+                                            <i class="ti ti-user"></i><span class="theme-cl f-bold">$217</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+        
+                        </article>
+                    </div>
+                    
+                    <!-- Single Tour -->
+                    <div class="list-slide-box">
+                        <article class="tour-box style-1">
+                        
+                            <div class="tour-box-image">
+                                <figure>
+                                    <a href="tour-detail.html">
+                                        <img src="{% static 'assets/img/tour/tour-7.jpg' %}" class="img-responsive listing-box-img" alt="" />
+                                        <div class="list-overlay"></div>
+                                        <div class="entry-bookmark">                                   
+                                            <a href="#"><i class="ti-bookmark"></i></a>
+                                        </div>
+                                        <div class="tour-time">
+                                            <i class="ti ti-car"></i><span>2 days</span>
+                                        </div>
+                                        <h4 class="destination-place">
+                                            <a href="#">Bangkok, Thailand. thitivong</a>
+                                        </h4>
+                                        <span class="featured-tour"><i class="fa fa-star"></i></span>
+                                        <a href="#" class="list-like left"><i class="ti-heart"></i></a>
+                                    </a>
+                                </figure>
+                            </div>
+                            
+                            <div class="entry-meta">
+                                <div class="meta-item meta-author">
+                                    <div class="coauthors">
+                                        <span class="vcard author">
+                                            <span class="fn">
+                                                <a href="#"><img alt="" src="{% static 'assets/img/user-8.jpg' %}" class="avatar avatar-24" height="24" width="24">Lisa Scholfield</a>
+                                            </span>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="meta-item meta-comment fl-right">
+                                    <i class="ti-comment-alt"></i><span>20</span>
+                                </div>
+                                <div class="meta-item meta-rating fl-right">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star-half"></i>
+                                </div>
+                            </div>
+
+                            <div class="inner-box">
+                                <div class="box-inner-ellipsis">
+                                    <h4 class="entry-title">
+                                        <a href="#">Hong Kong</a>
+                                    </h4>
+                                    <div class="price-box">
+                                        <div class="tour-price fl-right">
+                                            <i class="ti ti-user"></i><span class="theme-cl f-bold">$177</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+        
+                        </article>
+                    </div>
+                
+                </div>
+            </div>
+    
+        </div>
+    </section>
+    <!-- ====================== Top Tour & Activities ================= -->
+    <div class="clearfix"></div>
+    
+    <!-- ====================== Popular Domestic Routes From India ================= -->
+    <section>
+        <div class="container">
+            
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="heading">
+                        {% placeholder "title_message %}
+                    </div>
+                </div>
+            </div>
+            
+            <!-- <div class="row">
+            
+                < !-- Single Domestic Routes - - >
+                <div class="col-md-4 col-sm-6">
+                    <div class="domestic-routes">
+                        
+                        <div class="domestic-routes-thumb">
+                            <a href="#"><img src="{% static 'assets/img/tour-2.png' %}" class="img-responsive" alt="" /></a>
+                        </div>
+                        <div class="domestic-routes-detail">
+                            <h5><a href="#">Delhi To Austrailia</a></h5>
+                            <span>Flight</span>
+                            <span class="domestic-offer bg-success">-15% Off</span>
+                        </div>
+                        <div class="domestic-price">
+                            <h5><a href="#" class="theme-cl">$255</a></h5>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                < !-- Single Domestic Routes - - >
+                <div class="col-md-4 col-sm-6">
+                    <div class="domestic-routes">
+                        
+                        <div class="domestic-routes-thumb">
+                            <a href="#"><img src="{% static 'assets/img/tour-2.png' %}" class="img-responsive" alt="" /></a>
+                        </div>
+                        <div class="domestic-routes-detail">
+                            <h5><a href="#">Chandigarh To Canada</a></h5>
+                            <span>Flight</span>
+                        </div>
+                        <div class="domestic-price">
+                            <h5><a href="#" class="theme-cl">$350</a></h5>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                < !-- Single Domestic Routes - - >
+                <div class="col-md-4 col-sm-6">
+                    <div class="domestic-routes">
+                        
+                        <div class="domestic-routes-thumb">
+                            <a href="#"><img src="{% static 'assets/img/tour-2.png' %}" class="img-responsive" alt="" /></a>
+                        </div>
+                        <div class="domestic-routes-detail">
+                            <h5><a href="#">Delhi To United State</a></h5>
+                            <span>Flight</span>
+                            <span class="domestic-offer bg-success">-10% Off</span>
+                        </div>
+                        <div class="domestic-price">
+                            <h5><a href="#" class="theme-cl">$450</a></h5>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                < !-- Single Domestic Routes - - >
+                <div class="col-md-4 col-sm-6">
+                    <div class="domestic-routes">
+                        
+                        <div class="domestic-routes-thumb">
+                            <a href="#"><img src="{% static 'assets/img/tour-2.png' %}" class="img-responsive" alt="" /></a>
+                        </div>
+                        <div class="domestic-routes-detail">
+                            <h5><a href="#">Delhi To Switzerland</a></h5>
+                            <span>Flight</span>
+                        </div>
+                        <div class="domestic-price">
+                            <h5><a href="#" class="theme-cl">$720</a></h5>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                < !-- Single Domestic Routes - - >
+                <div class="col-md-4 col-sm-6">
+                    <div class="domestic-routes">
+                        
+                        <div class="domestic-routes-thumb">
+                            <a href="#"><img src="{% static 'assets/img/tour-2.png' %}" class="img-responsive" alt="" /></a>
+                        </div>
+                        <div class="domestic-routes-detail">
+                            <h5><a href="#">Mumbai To Singapore</a></h5>
+                            <span>Flight</span>
+                            <span class="domestic-offer bg-success">-12% Off</span>
+                        </div>
+                        <div class="domestic-price">
+                            <h5><a href="#" class="theme-cl">$370</a></h5>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                < !-- Single Domestic Routes - - >
+                <div class="col-md-4 col-sm-6">
+                    <div class="domestic-routes">
+                        
+                        <div class="domestic-routes-thumb">
+                            <a href="#"><img src="{% static 'assets/img/tour-2.png' %}" class="img-responsive" alt="" /></a>
+                        </div>
+                        <div class="domestic-routes-detail">
+                            <h5><a href="#">Chandigarh To Hong Kong</a></h5>
+                            <span>Flight</span>
+                        </div>
+                        <div class="domestic-price">
+                            <h5><a href="#" class="theme-cl">$640</a></h5>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                < !-- Single Domestic Routes - - >
+                <div class="col-md-4 col-sm-6">
+                    <div class="domestic-routes">
+                        
+                        <div class="domestic-routes-thumb">
+                            <a href="#"><img src="{% static 'assets/img/tour-2.png' %}" class="img-responsive" alt="" /></a>
+                        </div>
+                        <div class="domestic-routes-detail">
+                            <h5><a href="#">Delhi To Netherlands</a></h5>
+                            <span>Flight</span>
+                            <span class="domestic-offer bg-success">-07% Off</span>
+                        </div>
+                        <div class="domestic-price">
+                            <h5><a href="#" class="theme-cl">$820</a></h5>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                < !-- Single Domestic Routes - - >
+                <div class="col-md-4 col-sm-6">
+                    <div class="domestic-routes">
+                        
+                        <div class="domestic-routes-thumb">
+                            <a href="#"><img src="{% static 'assets/img/tour-2.png' %}" class="img-responsive" alt="" /></a>
+                        </div>
+                        <div class="domestic-routes-detail">
+                            <h5><a href="#">Mumbai To Qatar</a></h5>
+                            <span>Flight</span>
+                        </div>
+                        <div class="domestic-price">
+                            <h5><a href="#" class="theme-cl">$680</a></h5>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                < !-- Single Domestic Routes - - >
+                <div class="col-md-4 col-sm-6">
+                    <div class="domestic-routes">
+                        
+                        <div class="domestic-routes-thumb">
+                            <a href="#"><img src="{% static 'assets/img/tour-2.png' %}" class="img-responsive" alt="" /></a>
+                        </div>
+                        <div class="domestic-routes-detail">
+                            <h5><a href="#">Delhi To Switzerland</a></h5>
+                            <span>Flight</span>
+                            <span class="domestic-offer bg-success">-22% Off</span>
+                        </div>
+                        <div class="domestic-price">
+                            <h5><a href="#" class="theme-cl">$680</a></h5>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+            </div> -->
+    
+        </div>
+    </section>
+    <!-- ====================== Domestic Routes ================= -->
+    <div class="clearfix"></div>
+{% endblock content %}

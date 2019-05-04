@@ -1,0 +1,62 @@
+<!-- Single Tour List -->
+<div class="col-lg-6 col-md-6">
+    <article class="tour-box list-style">
+        <div class="row">
+            
+            <div class="col-md-5 col-sm-5">
+                <div class="tour-box-image">
+                    <a href="{% url 'detail' instance.id %}">
+                        <img src="{{ instance.image1.url }}" class="img-responsive tour-box-img" alt="">
+                    </a>
+                    <div class="entry-bookmark">                                   
+                        <a href="#"><i class="ti-bookmark"></i></a>
+                    </div>
+                    <div class="tour-time">
+                        <i class="ti ti-time"></i><span> {{ instance.day }} día{{ instance.day|pluralize }} </span>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="col-md-7 col-sm-7"> 
+                <div class="inner-box">
+                    <div class="discount-flick"> -22% </div>
+                    <div class="box-inner-ellipsis">
+                        <div style="margin: 0px; padding: 0px; border: 0px;">
+                            <h3 class="entry-title">
+                                <a href="{% url 'detail' instance.id %}"> {{ instance.title }} </a>
+                            </h3>
+                            <div class="entry-content">
+                                <p> {{ instance.description|slice:":128" }}... </p>
+                                <span class="price"> Desde <strong class="theme-cl"> $ {{ instance.price }} </strong> / por persona </span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="entry-meta">
+                        <div class="meta-item meta-author">
+                            <div class="coauthors">
+                                <span class="vcard author">
+                                    <span class="fn">
+                                        <a href="#"><img alt="" src="{{ instance.image1.url }}" class="avatar avatar-24" height="24" width="24"> {{ instance.location }} </a>
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="meta-item meta-comment fl-right">
+                            <i class="ti-user"></i><span> 10 </span>
+                        </div>
+                        <!-- <div class="meta-item meta-rating fl-right">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-half"></i>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        
+        </div>
+
+    </article>
+</div>

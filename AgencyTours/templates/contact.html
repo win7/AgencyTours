@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+{% load cms_tags static %}
+
+{% block title %}{% page_attribute "page_title" %}{% endblock title %}
+
+{% block header %}
+    {% placeholder "header" or %}
+        <!-- ======================= Start Page Title ===================== -->
+        <div class="page-title image-title" style="background-image:url(assets/img/tour.jpg);">
+            <div class="container">
+                <div class="page-title-wrap">
+                <h2> Título </h2>
+                <p><a href="#" class="theme-cl">Home</a> | <span> Descripción </span></p>
+                </div>
+            </div>
+        </div>
+        <!-- ======================= End Page Title ===================== -->
+    {% endplaceholder %}
+{% endblock header %}
+
+{% block content %}
+    <!-- =========== Start Contact =================== -->
+    <section class="gray-bg">
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-md-5 col-sm-5">
+                    <div class="form-box">
+                        <i class="c-icon ti-email theme-cl"></i>
+                        <div class="c-detail">
+                            <strong> Email: </strong>
+                            <p> {% static_placeholder "text_email" %} </p>
+                        </div>
+                    </div>
+                    
+                    <div class="form-box">
+                        <i class="c-icon ti-headphone-alt theme-cl"></i>
+                        <div class="c-detail">
+                            <strong> Llamar: </strong>
+                            <p> {% static_placeholder "text_phone" %} </p>
+                        </div>
+                    </div>
+                    
+                    <div class="form-box">
+                        <i class="c-icon ti-map-alt theme-cl"></i>
+                        <div class="c-detail">
+                            <strong> Dirección: </strong>
+                            <p> {% static_placeholder "text_address" %} <br> {% static_placeholder "text_city" %} </p>
+                        </div>
+                    </div>
+                    
+                </div>
+                
+                <div class="col-md-7 col-sm-7">
+                    <div class="form-box">
+                        <form class="c-form">
+                        
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label> Nombre <sup class="cl-danger">*</sup></label>
+                                    <input type="text" class="form-control">
+                                </div>
+                                <div class="col-sm-6">
+                                    <label> Email <sup class="cl-danger">*</sup></label>
+                                    <input type="email" class="form-control">
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label> Teléfono <sup class="cl-danger">*</sup></label>
+                                    <input type="text" class="form-control">
+                                </div>
+                                <div class="col-sm-6">
+                                    <label> Asunto </label>
+                                    <input type="text" class="form-control">
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <label> Mensaje </label>
+                                    <textarea class="form-control height-150"></textarea>
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <button type="button" class="btn theme-btn btn-arrow"> Enviar </button>
+                                </div>
+                            </div>
+                            
+                        </form>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    <!-- =========== End Contact =================== -->
+{% endblock content %}

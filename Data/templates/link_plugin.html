@@ -1,0 +1,28 @@
+{% load static %}
+<div class="list-item-entry">
+    <div class="hotel-item style-3 bg-white">
+        <div class="table-view">
+            <div class="radius-top cell-view">
+                <img src="{{ instance.image.url }}" alt="">
+            </div>
+            <div class="title hotel-middle clearfix cell-view">
+                <h4><b> {{ instance.title }} </b></h4>
+                <div class="rate-wrap">
+                    <div class="rate">
+                        <span class="fa fa-star color-yellow"></span>
+                        <span class="fa fa-star color-yellow"></span>
+                        <span class="fa fa-star color-yellow"></span>
+                        <span class="fa fa-star color-yellow"></span>
+                        <span class="fa fa-star color-yellow"></span>
+                    </div>
+                    <i>485 rewies</i>
+                </div>
+                <p class="tour-text color-dark-2-light"> {{ instance.description }} </p>
+            </div>
+            <div class="title hotel-right clearfix cell-view">
+                <div class="hotel-person color-dark-2"> From <span class="color-blue"> ${{ instance.price }} </span> Person </div>
+                <a class="c-button b-40 bg-blue hv-blue-o grid-hidden" href="{{ instance.url }}" target="_blank"> View More </a>
+            </div>
+        </div>
+    </div>
+</div>

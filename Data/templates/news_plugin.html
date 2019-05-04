@@ -1,0 +1,21 @@
+{% load static %}
+<div class="s_news-entry style-2">
+	<a href="blog_detail.html"><img class="s_news-img img-responsive" src="{{ instance.image.url }}" alt=""></a>
+	<h4 class="s_news-title"><a href="blog_detail.html"> {{ instance.title }} </a></h4>
+	<div class="tour-info-line clearfix">
+		<div class="tour-info fl">
+			<img src="{% static 'assets/img/calendar_icon_grey.png' %}" alt="">
+			<span class="font-style-2 color-dark-2"> {{ instance.date|date:"d-m-Y" }} </span>
+		</div>
+		<div class="tour-info fl">
+			<img src="{% static 'assets/img/people_icon_grey.png' %}" alt="">
+			<span class="font-style-2 color-dark-2"> By {{ instance.owner}} </span>
+		</div>
+		<div class="tour-info fl">
+			<img src="{% static 'assets/img/comment_icon_grey.png' %}" alt="">
+			<span class="font-style-2 color-dark-2"> 10 comments </span>
+		</div>
+	</div>
+	<div class="s_news-text color-dark-2-light"> {{ instance.description }} </div>
+	<a href="{{ instance.url }}" target="_blank" class="c-button small bg-dr-blue-2 hv-dr-blue-2-o"><span> view more </span></a>
+</div>
