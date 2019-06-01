@@ -308,7 +308,7 @@ DJANGOCMS_BOOTSTRAP4_COLOR_STYLE_CHOICES = (
 #-------------------------------------------------
 #   Google Map
 #-------------------------------------------------
-DJANGOCMS_GMAPS_API_KEY = 'key-here'
+DJANGOCMS_GMAPS_API_KEY = 'AIzaSyAUV1NLP4LxvrSuFxy99huU-VPchLi86aQ'
 
 #-------------------------------------------------
 #   Obs
